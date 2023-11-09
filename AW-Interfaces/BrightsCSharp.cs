@@ -32,7 +32,7 @@ namespace AW_Interfaces
             {
                 using (StreamWriter streamWriter = new(path, false, Encoding.UTF8))
                 {
-                    streamWriter.WriteLine("Course Year: " + CourseYear);
+                    streamWriter.WriteLine("Class of " + CourseYear);
 
                     foreach (string participantName in participantList)
                     {
@@ -60,9 +60,9 @@ namespace AW_Interfaces
 
                 while ((line = streamReader.ReadLine()) != null)
                 {
-                    if (line.Contains("Current Year: "))
+                    if (line.Contains("Class of "))
                     {
-                        CourseYear = int.Parse(line.Replace("Current Year: ", ""));
+                        CourseYear = int.Parse(line.Replace("Class of ", ""));
                     }
                     else
                     {
