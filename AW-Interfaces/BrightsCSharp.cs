@@ -19,7 +19,7 @@ namespace AW_Interfaces
         }
         public List<string> GetCourseParticipantNames()
         {
-            return _ParticipantNames;
+            return new(_ParticipantNames); //returns a copy of the list, not allowing changes to the original
         }
 
         public void SaveToFile(List<string> participantList, string? filePath = null)
@@ -52,7 +52,7 @@ namespace AW_Interfaces
         {
             string presetPath = AppContext.BaseDirectory.Substring(0, AppContext.BaseDirectory.LastIndexOf(@"\bin") + 1) + @"CourseParticipants.txt";
 
-            var path = filePath ?? presetPath;
+            string path = filePath ?? presetPath;
 
             using (StreamReader streamReader = new(path, Encoding.UTF8)) //.Unicode))
             {
